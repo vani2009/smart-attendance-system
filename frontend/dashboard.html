@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MyMark — Admin Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--brown-dark:#2C1A0E;--brown-mid:#7C5A3A;--brown-warm:#B08060;--cream:#FAF7F2;--cream-dark:#EDE6D9;--gold:#C9A84C;--success:#2E7D4F;--danger:#C0392B;--warning:#D97706;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--brown-dark);display:flex;min-height:100vh;}
+.sidebar{width:220px;background:var(--brown-dark);color:var(--cream);padding:1.5rem 0;flex-shrink:0;position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;}
+.sidebar-logo{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:900;padding:0 1.5rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+.sidebar-logo span{color:var(--gold);}
+.sidebar-tag{font-size:0.7rem;background:rgba(201,168,76,0.2);color:var(--gold);padding:2px 8px;border-radius:4px;display:inline-block;margin-top:4px;}
+.nav-item{display:flex;align-items:center;gap:0.7rem;padding:0.7rem 1.5rem;cursor:pointer;font-size:0.875rem;font-weight:500;color:rgba(250,247,242,0.6);transition:all 0.2s;text-decoration:none;}
+.nav-item:hover,.nav-item.active{color:var(--cream);background:rgba(255,255,255,0.06);}
+.nav-item.active{border-right:3px solid var(--gold);color:var(--cream);}
+.main{margin-left:220px;flex:1;padding:2rem;}
+h1{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:900;margin-bottom:0.25rem;}
+.sub{font-size:0.875rem;color:var(--brown-mid);margin-bottom:2rem;}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
+.kpi{background:#fff;border:1px solid var(--cream-dark);border-radius:12px;padding:1.25rem;}
+.kpi-label{font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--brown-mid);}
+.kpi-val{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;margin-top:0.25rem;}
+.kpi-note{font-size:0.75rem;color:var(--brown-mid);margin-top:0.2rem;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.card{background:#fff;border:1px solid var(--cream-dark);border-radius:14px;padding:1.5rem;}
+.card h3{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;margin-bottom:0.25rem;}
+.card .card-sub{font-size:0.8rem;color:var(--brown-mid);margin-bottom:1.25rem;}
+table{width:100%;border-collapse:collapse;font-size:0.85rem;}
+thead th{text-align:left;padding:0.6rem 0.75rem;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--brown-mid);border-bottom:2px solid var(--cream-dark);}
+tbody td{padding:0.65rem 0.75rem;border-bottom:1px solid var(--cream-dark);}
+tbody tr:hover{background:var(--cream);}
+.chip{display:inline-flex;padding:0.2rem 0.6rem;border-radius:100px;font-size:0.72rem;font-weight:700;}
+.chip-ok{background:#D1FAE5;color:#065F46;}
+.chip-warn{background:#FEF3C7;color:#92400E;}
+.chip-bad{background:#FEE2E2;color:#991B1B;}
+.bar-row{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;}
+.bar-label{font-size:0.8rem;font-weight:600;width:100px;flex-shrink:0;}
+.bar-track{flex:1;height:8px;background:var(--cream-dark);border-radius:4px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;}
+.bar-pct{font-size:0.78rem;font-weight:700;color:var(--brown-mid);width:36px;text-align:right;}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo">My<span>Mark</span><br/><span class="sidebar-tag">Admin</span></div>
+  <nav style="margin-top:1rem;flex:1;">
+    <a href="#" class="nav-item active"><span>📊</span> Overview</a>
+    <a href="#" class="nav-item"><span>🏫</span> Departments</a>
+    <a href="#" class="nav-item"><span>👩‍🏫</span> Teachers</a>
+    <a href="#" class="nav-item"><span>🎓</span> Students</a>
+    <a href="#" class="nav-item"><span>📋</span> All Courses</a>
+    <a href="#" class="nav-item"><span>📈</span> Analytics</a>
+    <a href="login.html" class="nav-item"><span>🚪</span> Logout</a>
+  </nav>
+</aside>
+
+<main class="main">
+  <h1>Institution Overview</h1>
+  <p class="sub">Smart Curriculum Activity &amp; Attendance System · Admin Console</p>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Total Students</div><div class="kpi-val">1,248</div><div class="kpi-note">4 departments</div></div>
+    <div class="kpi"><div class="kpi-label">Active Courses</div><div class="kpi-val">36</div><div class="kpi-note">This semester</div></div>
+    <div class="kpi"><div class="kpi-label">Avg Attendance</div><div class="kpi-val" style="color:var(--success)">84%</div><div class="kpi-note">↑ 2% from last sem</div></div>
+    <div class="kpi"><div class="kpi-label">At-Risk Students</div><div class="kpi-val" style="color:var(--danger)">47</div><div class="kpi-note">Below 75% threshold</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Attendance by Department</h3>
+      <div class="card-sub">Average this semester</div>
+      <div class="bar-row"><div class="bar-label">CSE</div><div class="bar-track"><div class="bar-fill" style="width:87%;background:var(--success)"></div></div><div class="bar-pct">87%</div></div>
+      <div class="bar-row"><div class="bar-label">ECE</div><div class="bar-track"><div class="bar-fill" style="width:82%;background:var(--success)"></div></div><div class="bar-pct">82%</div></div>
+      <div class="bar-row"><div class="bar-label">Mech</div><div class="bar-track"><div class="bar-fill" style="width:79%;background:var(--warning)"></div></div><div class="bar-pct">79%</div></div>
+      <div class="bar-row"><div class="bar-label">Civil</div><div class="bar-track"><div class="bar-fill" style="width:71%;background:var(--warning)"></div></div><div class="bar-pct">71%</div></div>
+    </div>
+
+    <div class="card">
+      <h3>Top At-Risk Courses</h3>
+      <div class="card-sub">Courses with lowest attendance rates</div>
+      <table>
+        <thead><tr><th>Course</th><th>Dept</th><th>Avg Att.</th><th>At-Risk</th></tr></thead>
+        <tbody>
+          <tr><td>ME402</td><td>Mech</td><td>62%</td><td><span class="chip chip-bad">8</span></td></tr>
+          <tr><td>CE301</td><td>Civil</td><td>67%</td><td><span class="chip chip-bad">5</span></td></tr>
+          <tr><td>EC205</td><td>ECE</td><td>71%</td><td><span class="chip chip-warn">4</span></td></tr>
+          <tr><td>CS301</td><td>CSE</td><td>78%</td><td><span class="chip chip-warn">3</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</body>
+</html>
