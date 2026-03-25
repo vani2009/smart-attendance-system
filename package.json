@@ -1,0 +1,32 @@
+{
+  "name": "smart-attendance-system",
+  "version": "1.0.0",
+  "description": "**Team A** · Studio Shodwe · VIT Chennai 2024",
+  "main": "package.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vani2009/smart-attendance-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vani2009/smart-attendance-system/issues"
+  },
+  "homepage": "https://github.com/vani2009/smart-attendance-system#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.100.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "qrcode": "^1.5.4"
+  }
+}
